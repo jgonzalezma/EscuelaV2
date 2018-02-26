@@ -40,4 +40,7 @@ public class Matricula {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
+	public void mostrarMatriculas(){
+		
+	}
 }

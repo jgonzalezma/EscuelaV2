@@ -8,6 +8,15 @@ public class Alumno {
 	private String nombre;
 	private String email;
 	private ArrayList<Matricula> matriculas;
+	private Asignatura asignatura;
+
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
 
 	public Alumno(int id, String dni, String nombre, String email) {
 		this.id = id;

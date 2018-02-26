@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,4 +26,24 @@ public class MatriculaModelo extends Conector {
 
 		return listaMatriculas;
 	}
+	public ArrayList<Matricula> getMatriculaConAsignatura(Alumno alumno){
+		AsignaturaModelo asignaturaModelo = new AsignaturaModelo();
+		ArrayList <Matricula> matriculas = new ArrayList<Matricula>();
+		Matricula matricula;
+		try {
+			PreparedStatement pst = super.conexion.prepareStatement("select * from matriculas where id_alumno =?");
+			pst.setInt(1, alumno.getId());
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()){
+				matricula = new Matricula();
+				matricula.setFecha(rs.getDate("fecha"));
+				matricula.setAsignatura(asignaturaModelo.getAsignatura(rs.getInt("id_asignatura")));
+				matriculas.add(matricula);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		return matriculas;
+	}
+	
 }
