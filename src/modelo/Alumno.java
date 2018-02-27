@@ -9,6 +9,15 @@ public class Alumno {
 	private String email;
 	private ArrayList<Matricula> matriculas;
 	private Asignatura asignatura;
+	private Provincia provincia;
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
 
 	public Asignatura getAsignatura() {
 		return asignatura;

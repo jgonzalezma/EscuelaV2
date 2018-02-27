@@ -1,10 +1,12 @@
 package main;
 
+import vista.MatriculaVista;
+
 public class MainMatriculas {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		MatriculaVista vm = new MatriculaVista();
+		vm.menuMatriculas();
 	}
 
 }

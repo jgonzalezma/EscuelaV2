@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 import modelo.*;
 
-public class VistaMatricula {
-	public class MatriculaVista {
+public class MatriculaVista {
 		static final int MOSTRAR_MATRICULAS = 1;
 		static final int ALUMNOS_MATRICULAS = 2;
 		static final int SALIR = 0;
@@ -32,7 +31,6 @@ public class VistaMatricula {
 				case ALUMNOS_MATRICULAS:
 					AlumnoModelo alumnoModelo = new AlumnoModelo();
 					ArrayList<Alumno> alumnos = alumnoModelo.selectAllConMatriculas();
-					
 					this.mostrarAlumnosConAsignaturas(alumnos);
 					break;
 
@@ -58,7 +56,16 @@ public class VistaMatricula {
 				+ matricula.getAlumno().getDni() + "\nInfo Asignatura : " + "\nNombre : " + matricula.getAsignatura().getNombre() + "\nHoras : " + matricula.getAsignatura().getHoras());
 	}
 	private void mostrarAlumnosConAsignaturas(ArrayList<Alumno> alumnos){
+		AlumnoModelo am = new AlumnoModelo();
+		Iterator<Alumno> i = am.selectAll().iterator();
+		while(i.hasNext()){
+			Alumno alumno = i.next();
+			mostrarAlumnoConAsignatura(alumno);
+		}
+	}
+
+	private void mostrarAlumnoConAsignatura(Alumno alumno) {
+		System.out.println("Nombre: " + alumno.getNombre() + "\nDni: " + alumno.getDni() + "\nMatricula: " + alumno.getMatriculas());
 		
 	}
 }
-	}
